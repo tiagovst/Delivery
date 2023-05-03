@@ -40,7 +40,7 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel2 = new main.java.br.edu.ifba.components.PainelArredondado();
         btnEntrar = new javax.swing.JButton();
         psfSenha = new javax.swing.JPasswordField();
         txtLogin = new javax.swing.JTextField();

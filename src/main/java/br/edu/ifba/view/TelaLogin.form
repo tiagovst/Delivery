@@ -65,6 +65,9 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new main.java.br.edu.ifba.components.PainelArredondado()"/>
+          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">

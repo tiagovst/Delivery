@@ -24,7 +24,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel2 = new main.java.br.edu.ifba.components.PainelArredondado();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtNomeUsuario = new javax.swing.JTextField();
