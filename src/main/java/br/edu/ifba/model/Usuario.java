@@ -1,28 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package br.edu.ifba.model;
+package main.java.br.edu.ifba.model;
 
-/**
- *
- * @author tiago
- */
+
 public class Usuario {
+    protected int id;
     protected String nome;
     protected String email;
     protected String senha;
     protected String endereco;
     protected String telefone;
 
-    public Usuario(String nome, String email, String senha, String endereco, String telefone) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.endereco = endereco;
-        this.telefone = telefone;
+    
+    public int getId() {
+        return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
