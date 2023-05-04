@@ -76,6 +76,11 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         psfSenhaEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         psfSenhaEmpresa.setForeground(new java.awt.Color(0, 0, 0));
         psfSenhaEmpresa.setText("jPasswordField1");
+        psfSenhaEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psfSenhaEmpresaMouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -85,6 +90,11 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         psfRepetirSenhaEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         psfRepetirSenhaEmpresa.setForeground(new java.awt.Color(0, 0, 0));
         psfRepetirSenhaEmpresa.setText("jPasswordField2");
+        psfRepetirSenhaEmpresa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psfRepetirSenhaEmpresaMouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -202,6 +212,14 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void psfSenhaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psfSenhaEmpresaMouseClicked
+        this.psfSenhaEmpresa.setText("");
+    }//GEN-LAST:event_psfSenhaEmpresaMouseClicked
+
+    private void psfRepetirSenhaEmpresaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psfRepetirSenhaEmpresaMouseClicked
+        this.psfRepetirSenhaEmpresa.setText("");
+    }//GEN-LAST:event_psfRepetirSenhaEmpresaMouseClicked
 
     /**
      * @param args the command line arguments

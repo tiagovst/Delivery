@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import main.java.br.edu.ifba.components.JOptionPaneCustomizado;
 import main.java.br.edu.ifba.service.ServiceLogin;
 import main.java.br.edu.ifba.view.TelaLogin;
 
@@ -30,7 +31,12 @@ public class ControleLogin implements ActionListener, KeyListener{
             servicelogin.login();
         }
         if (e.getSource().equals(telaLogin.getBtnRegistrar())) {
-        
+            String retorno = JOptionPaneCustomizado.showConfirmationDialog("Selecione o tipo de usuário:", this.telaLogin);
+            if (retorno.equals("Cliente")) {
+                ControleCadastroUsuario controleCadastroUsuario = new ControleCadastroUsuario();
+            } else {
+//                ControleCadastroEmpresa controleCadastroEmpresa = new ControleCadastroEmpresa();
+            }
         }
         if (e.getSource().equals(telaLogin.getBtnTrocarSenha())) {
         

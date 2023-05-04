@@ -40,7 +40,7 @@ public class UsuarioEmpresaDAO extends UsuarioDAO{
     }
 
     public int inserir(UsuarioEmpresa usuario) {
-        String sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, cnpj) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, cnpj) VALUES (?, ?, md5(?), ?, ?, ?)";
         
             PreparedStatement pst;
             ResultSet rs;
