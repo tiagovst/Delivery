@@ -39,6 +39,7 @@ public class TelaCadastroEmpresa extends javax.swing.JFrame {
         fTxtTelefoneEmpresa = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro");
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 

@@ -68,6 +68,7 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         btnDesligarEmpresa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Configurações");
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 

@@ -32,6 +32,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Delivery IFBA");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 

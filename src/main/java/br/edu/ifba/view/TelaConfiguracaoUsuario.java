@@ -66,6 +66,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         btnDesligar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Configurações");
 
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
 
