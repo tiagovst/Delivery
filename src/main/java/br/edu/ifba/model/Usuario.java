@@ -2,12 +2,13 @@ package main.java.br.edu.ifba.model;
 
 
 public class Usuario {
-    protected int id;
-    protected String nome;
-    protected String email;
-    protected String senha;
-    protected String endereco;
-    protected String telefone;
+    private int id;
+    private String nome;
+    private String email;
+    private String senha;
+    private String endereco;
+    private String telefone;
+    private String cnpj;
 
     
     public int getId() {
@@ -56,5 +57,13 @@ public class Usuario {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getCnpj() {
+        return cnpj;
+    }
+
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 }

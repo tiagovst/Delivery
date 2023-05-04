@@ -15,6 +15,9 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
      */
     public TelaConfiguracaoEmpresa() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        this.setExtendedState(MAXIMIZED_BOTH);
+
     }
 
     /**

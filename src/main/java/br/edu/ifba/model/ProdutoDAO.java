@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ProdutoDAO {
     
     public int inserir(Produto produto) {
-        String sql = "INSERT INTO produto (nome, foto, preco, quantidade) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO produto (nome, foto, preco, quantidade, empresa) VALUES (?, ?, ?, ?, ?)";
         
             PreparedStatement pst;
             ResultSet rs;
@@ -21,6 +21,7 @@ public class ProdutoDAO {
                 pst.setString(2, produto.getFoto());
                 pst.setFloat(3, produto.getPreco());
                 pst.setInt(4, produto.getQuantidade());
+                pst.setString(5, produto.getEmpresa());
                 pst.execute();
                 rs = pst.getGeneratedKeys();
                 if (rs.next()) {
@@ -38,7 +39,7 @@ public class ProdutoDAO {
     
     public void alterar(Produto produto){
         
-        String sql = "UPDATE produto SET nome = ?, foto = ?, preco = ?, quantidade = ? WHERE id = ?";
+        String sql = "UPDATE produto SET nome = ?, foto = ?, preco = ?, quantidade = ?, empresa = ? WHERE id = ?";
         
         PreparedStatement pst;
         try {
@@ -47,7 +48,8 @@ public class ProdutoDAO {
             pst.setString(2, produto.getFoto());
             pst.setFloat(3, produto.getPreco());
             pst.setInt(4, produto.getQuantidade());
-            pst.setInt(5, produto.getId());
+            pst.setString(5, produto.getEmpresa());
+            pst.setInt(6, produto.getId());
             pst.execute();
             pst.close();                
         } catch (SQLException ex) {
@@ -129,6 +131,7 @@ public class ProdutoDAO {
                 produto.setFoto(rs.getString("foto"));
                 produto.setPreco(rs.getFloat("preço"));
                 produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setEmpresa(rs.getString("empresa"));
             }
             
             rs.close();
@@ -160,6 +163,7 @@ public class ProdutoDAO {
                 produto.setFoto(rs.getString("foto"));
                 produto.setPreco(rs.getFloat("preço"));
                 produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setEmpresa(rs.getString("empresa"));
                 lista.add(produto);
             }
             

@@ -26,7 +26,7 @@ public class ServiceCadastroUsuario {
         usuarioCadastrado.setEmail(this.telaCadastroUsuario.getTxtEmailUsuario().getText());
         usuarioCadastrado.setSenha(senha);
         usuarioCadastrado.setEndereco(this.telaCadastroUsuario.getTxtEnderecoUsuario().getText());
-        usuarioCadastrado.setTelefone(this.telaCadastroUsuario.getTxtTelefoneUsuario().getText());
+        usuarioCadastrado.setTelefone(this.telaCadastroUsuario.getfTxtTelefone().getText());
         
         if (senha.equals(confirmacaoSenha)){
             this.usuarioDAO.inserir(usuarioCadastrado);

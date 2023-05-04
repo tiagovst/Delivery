@@ -15,6 +15,8 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
      */
     public TelaConfiguracaoUsuario() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**

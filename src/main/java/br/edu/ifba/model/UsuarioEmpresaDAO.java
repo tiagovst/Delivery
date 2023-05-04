@@ -7,9 +7,9 @@ import java.sql.SQLException;
 public class UsuarioEmpresaDAO extends UsuarioDAO{
 
     @Override
-    public UsuarioEmpresa acesso(String nome, String senha) {
+    public Usuario acesso(String nome, String senha) {
         String sql = "SELECT * FROM usuario WHERE nome = ? AND senha = md5(?)";
-        UsuarioEmpresa usuario = new UsuarioEmpresa();
+        Usuario usuario = new Usuario();
         
         PreparedStatement pst;
         ResultSet rs;
@@ -38,8 +38,9 @@ public class UsuarioEmpresaDAO extends UsuarioDAO{
         
         return usuario;
     }
-
-    public int inserir(UsuarioEmpresa usuario) {
+    
+    @Override
+    public int inserir(Usuario usuario) {
         String sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, cnpj) VALUES (?, ?, md5(?), ?, ?, ?)";
         
             PreparedStatement pst;

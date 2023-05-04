@@ -35,7 +35,7 @@ public class ControleLogin implements ActionListener, KeyListener{
             if (retorno.equals("Cliente")) {
                 ControleCadastroUsuario controleCadastroUsuario = new ControleCadastroUsuario();
             } else {
-//                ControleCadastroEmpresa controleCadastroEmpresa = new ControleCadastroEmpresa();
+                ControleCadastroEmpresa controleCadastroEmpresa = new ControleCadastroEmpresa();
             }
         }
         if (e.getSource().equals(telaLogin.getBtnTrocarSenha())) {

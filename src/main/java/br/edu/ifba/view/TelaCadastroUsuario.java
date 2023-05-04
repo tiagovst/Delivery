@@ -1,6 +1,7 @@
 package main.java.br.edu.ifba.view;
 
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -38,8 +39,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         return txtNomeUsuario;
     }
 
-    public JTextField getTxtTelefoneUsuario() {
-        return txtTelefoneUsuario;
+    public JFormattedTextField getfTxtTelefone() {
+        return fTxtTelefone;
     }
 
     
@@ -61,8 +62,8 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         txtEnderecoUsuario = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtTelefoneUsuario = new javax.swing.JTextField();
         btnCadastrarUsuario = new javax.swing.JButton();
+        fTxtTelefone = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +99,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         psfSenhaUsuario.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         psfSenhaUsuario.setForeground(new java.awt.Color(0, 0, 0));
         psfSenhaUsuario.setText("jPasswordField1");
+        psfSenhaUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psfSenhaUsuarioMouseClicked(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -107,6 +113,11 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         psfRepetirSenhaUsuario.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         psfRepetirSenhaUsuario.setForeground(new java.awt.Color(0, 0, 0));
         psfRepetirSenhaUsuario.setText("jPasswordField2");
+        psfRepetirSenhaUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                psfRepetirSenhaUsuarioMouseClicked(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -120,11 +131,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Telefone");
 
-        txtTelefoneUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        txtTelefoneUsuario.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtTelefoneUsuario.setForeground(new java.awt.Color(0, 0, 0));
-
         btnCadastrarUsuario.setText("Cadastrar");
+
+        fTxtTelefone.setBackground(new java.awt.Color(255, 255, 255));
+        try {
+            fTxtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("+## ### #####-####")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -139,13 +153,13 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCadastrarUsuario)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNomeUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
                             .addComponent(jLabel1)
-                            .addComponent(txtTelefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7)
-                            .addComponent(txtEnderecoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
+                            .addComponent(txtEnderecoUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(fTxtTelefone))
                         .addGap(67, 67, 67)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -178,15 +192,15 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(psfRepetirSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(psfRepetirSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fTxtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtEnderecoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefoneUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel7)))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastrarUsuario)
                 .addContainerGap(72, Short.MAX_VALUE))
@@ -213,6 +227,14 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void psfRepetirSenhaUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psfRepetirSenhaUsuarioMouseClicked
+        this.getPsfRepetirSenhaUsuario().setText("");
+    }//GEN-LAST:event_psfRepetirSenhaUsuarioMouseClicked
+
+    private void psfSenhaUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_psfSenhaUsuarioMouseClicked
+        this.getPsfSenhaUsuario().setText("");
+    }//GEN-LAST:event_psfSenhaUsuarioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -251,6 +273,7 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadastrarUsuario;
+    private javax.swing.JFormattedTextField fTxtTelefone;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -265,6 +288,5 @@ public class TelaCadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmailUsuario;
     private javax.swing.JTextField txtEnderecoUsuario;
     private javax.swing.JTextField txtNomeUsuario;
-    private javax.swing.JTextField txtTelefoneUsuario;
     // End of variables declaration//GEN-END:variables
 }

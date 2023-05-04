@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class UsuarioDAO {
     
     public int inserir(Usuario usuario) {
-        String sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone) VALUES (?, ?, md5(?), ?, ?)";
+        String sql = "INSERT INTO usuario (nome, email, senha, endereco, telefone, cnpj) VALUES (?, ?, md5(?), ?, ?, 0)";
         
             PreparedStatement pst;
             ResultSet rs;
