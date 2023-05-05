@@ -101,25 +101,42 @@ public class UsuarioDAO {
         return usuario;
     }
     
-    
-    public void alterarSenha(Usuario usuario){
+    public boolean excluir(Usuario usuario){
+        String sql = "DELETE FROM produto WHERE id = ?";
         
-        String sql = "UPDATE usuario SET senha = md5(?) WHERE nome LIKE ?";
+        PreparedStatement pst;
+        
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setInt(1, usuario.getId());
+            pst.execute();
+            pst.close();                
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return false;
+        }
+        
+        return true;
+    }
+       
+    public void alterar(Usuario usuario){
+        
+        String sql = "UPDATE usuario SET nome = ?, email = ?, senha = mds(?), endereco = ?, telefone = ?, cnpj = 0 WHERE id = ?";
         
         PreparedStatement pst;
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
-            pst.setString(1, usuario.getSenha());
-            pst.setString(2, usuario.getNome());
+            pst.setString(1, usuario.getNome());
+            pst.setString(2, usuario.getEmail());
+            pst.setString(3, usuario.getSenha());
+            pst.setString(4, usuario.getEndereco());
+            pst.setString(5, usuario.getTelefone());
+            pst.setInt(6, usuario.getId());
             pst.execute();
             pst.close();                
         } catch (SQLException ex) {
             System.out.println(ex);
         }
-        
-        // alterar endereço
-        // apagar do banco
-        
     }
 
 }
