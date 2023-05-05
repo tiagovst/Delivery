@@ -112,22 +112,24 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtConfigTelefoneEmpresa" min="-2" pref="306" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtConfigNomeEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="txtConfigNome" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtConfigEnderecoEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="txtConfigEndereco" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtConfigTelefone" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtConfigCNPJ" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtConfigEmailEmpresa" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="txtConfigEmail" min="-2" pref="306" max="-2" attributes="0"/>
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <Component id="psfConfigSenhaEmpresa" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="psfConfigSenha" min="-2" pref="306" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -147,8 +149,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtConfigNomeEmpresa" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="txtConfigEmailEmpresa" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtConfigNome" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtConfigEmail" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -157,13 +159,19 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtConfigEnderecoEmpresa" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="psfConfigSenhaEmpresa" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtConfigEndereco" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="psfConfigSenha" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtConfigTelefoneEmpresa" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtConfigTelefone" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtConfigCNPJ" min="-2" pref="36" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace pref="332" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -192,8 +200,9 @@
                         <Property name="text" type="java.lang.String" value="Nome:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtConfigNomeEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtConfigNome">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
@@ -216,8 +225,9 @@
                         <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtConfigEnderecoEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtConfigEndereco">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
@@ -240,8 +250,9 @@
                         <Property name="text" type="java.lang.String" value="Telefone:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtConfigTelefoneEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtConfigTelefone">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
@@ -264,8 +275,9 @@
                         <Property name="text" type="java.lang.String" value="Email:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtConfigEmailEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtConfigEmail">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
@@ -288,8 +300,9 @@
                         <Property name="text" type="java.lang.String" value="Senha:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="psfConfigSenhaEmpresa">
+                    <Component class="javax.swing.JPasswordField" name="psfConfigSenha">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
                         </Property>
@@ -297,6 +310,25 @@
                           <Color blue="0" green="0" red="0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel15">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Liberation Sans" size="16" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CNPJ:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtConfigCNPJ">
+                      <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -376,26 +408,28 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnLimparCamposEmpresa" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtEditTelefoneEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnLimparCampos" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSalvar" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtEditNomeEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="txtEditNome" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtEditEnderecoEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="txtEditEndereco" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtEditTelefone" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtEditCNPJ" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="txtEditEmailEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="txtEditEmail" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                           <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="psfEditSenhaEmpresa" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
+                                          <Component id="psfEditSenha" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="btnSalvarEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="75" max="32767" attributes="0"/>
                           </Group>
@@ -413,8 +447,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEditNomeEmpresa" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="txtEditEmailEmpresa" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtEditNome" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtEditEmail" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -423,17 +457,23 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtEditEnderecoEmpresa" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="psfEditSenhaEmpresa" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtEditEndereco" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="psfEditSenha" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtEditTelefoneEmpresa" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtEditTelefone" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtEditCNPJ" min="-2" pref="36" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="btnLimparCamposEmpresa" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimparCampos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnSalvarEmpresa" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSalvar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="229" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -462,7 +502,7 @@
                         <Property name="text" type="java.lang.String" value="Nome:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtEditNomeEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtEditNome">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -486,7 +526,7 @@
                         <Property name="text" type="java.lang.String" value="Endere&#xe7;o:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtEditEnderecoEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtEditEndereco">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -510,7 +550,7 @@
                         <Property name="text" type="java.lang.String" value="Telefone:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtEditTelefoneEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtEditTelefone">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -534,7 +574,7 @@
                         <Property name="text" type="java.lang.String" value="Email:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JTextField" name="txtEditEmailEmpresa">
+                    <Component class="javax.swing.JTextField" name="txtEditEmail">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -558,7 +598,7 @@
                         <Property name="text" type="java.lang.String" value="Senha:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JPasswordField" name="psfEditSenhaEmpresa">
+                    <Component class="javax.swing.JPasswordField" name="psfEditSenha">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -569,14 +609,35 @@
                         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnSalvarEmpresa">
+                    <Component class="javax.swing.JButton" name="btnSalvar">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLimparCamposEmpresa">
+                    <Component class="javax.swing.JButton" name="btnLimparCampos">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Limpar campos"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="jLabel16">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Liberation Sans" size="16" style="0"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="CNPJ:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JTextField" name="txtEditCNPJ">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                        </Property>
+                        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="0" green="0" red="0" type="rgb"/>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -631,12 +692,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnLogoutEmpresa" min="-2" pref="349" max="-2" attributes="0"/>
+                                  <Component id="btnLogout" min="-2" pref="349" max="-2" attributes="0"/>
                                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="79" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnDesligarEmpresa" pref="349" max="32767" attributes="0"/>
+                                  <Component id="btnDesligar" pref="349" max="32767" attributes="0"/>
                                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -653,8 +714,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btnLogoutEmpresa" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="btnDesligarEmpresa" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="btnLogout" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="btnDesligar" min="-2" pref="160" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="358" max="32767" attributes="0"/>
                           </Group>
@@ -690,7 +751,7 @@
                         <Property name="text" type="java.lang.String" value="Fechar o aplicativo:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnLogoutEmpresa">
+                    <Component class="javax.swing.JButton" name="btnLogout">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -701,7 +762,7 @@
                         <Property name="text" type="java.lang.String" value="Log-out"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnDesligarEmpresa">
+                    <Component class="javax.swing.JButton" name="btnDesligar">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="ff" green="ff" red="ff" type="rgb"/>

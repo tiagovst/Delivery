@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package main.java.br.edu.ifba.view;
 
-/**
- *
- * @author tiago
- */
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
 
     /**
@@ -19,7 +15,72 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
 
     }
+    
+    //getters
+    public JButton getBtnDesligar() {
+        return btnDesligar;
+    }
 
+    public JButton getBtnLimparCampos() {
+        return btnLimparCampos;
+    }
+
+    public JButton getBtnLogout() {
+        return btnLogout;
+    }
+
+    public JButton getBtnSalvar() {
+        return btnSalvar;
+    }
+
+    public JPasswordField getPsfConfigSenha() {
+        return psfConfigSenha;
+    }
+
+    public JPasswordField getPsfEditSenha() {
+        return psfEditSenha;
+    }
+
+    public JTextField getTxtConfigCNPJ() {
+        return txtConfigCNPJ;
+    }
+
+    public JTextField getTxtConfigEmail() {
+        return txtConfigEmail;
+    }
+
+    public JTextField getTxtConfigEndereco() {
+        return txtConfigEndereco;
+    }
+
+    public JTextField getTxtConfigNome() {
+        return txtConfigNome;
+    }
+
+    public JTextField getTxtConfigTelefone() {
+        return txtConfigTelefone;
+    }
+
+    public JTextField getTxtEditCNPJ() {
+        return txtEditCNPJ;
+    }
+
+    public JTextField getTxtEditEmail() {
+        return txtEditEmail;
+    }
+
+    public JTextField getTxtEditEndereco() {
+        return txtEditEndereco;
+    }
+
+    public JTextField getTxtEditNome() {
+        return txtEditNome;
+    }
+
+    public JTextField getTxtEditTelefone() {
+        return txtEditTelefone;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,37 +96,41 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         jPanel2 = new main.java.br.edu.ifba.components.PainelArredondado();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtConfigNomeEmpresa = new javax.swing.JTextField();
+        txtConfigNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtConfigEnderecoEmpresa = new javax.swing.JTextField();
+        txtConfigEndereco = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtConfigTelefoneEmpresa = new javax.swing.JTextField();
+        txtConfigTelefone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtConfigEmailEmpresa = new javax.swing.JTextField();
+        txtConfigEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        psfConfigSenhaEmpresa = new javax.swing.JPasswordField();
+        psfConfigSenha = new javax.swing.JPasswordField();
+        jLabel15 = new javax.swing.JLabel();
+        txtConfigCNPJ = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new main.java.br.edu.ifba.components.PainelArredondado();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        txtEditNomeEmpresa = new javax.swing.JTextField();
+        txtEditNome = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        txtEditEnderecoEmpresa = new javax.swing.JTextField();
+        txtEditEndereco = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        txtEditTelefoneEmpresa = new javax.swing.JTextField();
+        txtEditTelefone = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        txtEditEmailEmpresa = new javax.swing.JTextField();
+        txtEditEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        psfEditSenhaEmpresa = new javax.swing.JPasswordField();
-        btnSalvarEmpresa = new javax.swing.JButton();
-        btnLimparCamposEmpresa = new javax.swing.JButton();
+        psfEditSenha = new javax.swing.JPasswordField();
+        btnSalvar = new javax.swing.JButton();
+        btnLimparCampos = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        txtEditCNPJ = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        btnLogoutEmpresa = new javax.swing.JButton();
-        btnDesligarEmpresa = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
+        btnDesligar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configurações");
@@ -87,41 +152,53 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome:");
 
-        txtConfigNomeEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtConfigNomeEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtConfigNomeEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtConfigNome.setEditable(false);
+        txtConfigNome.setBackground(new java.awt.Color(255, 255, 255));
+        txtConfigNome.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtConfigNome.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel3.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Endereço:");
 
-        txtConfigEnderecoEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtConfigEnderecoEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtConfigEnderecoEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtConfigEndereco.setEditable(false);
+        txtConfigEndereco.setBackground(new java.awt.Color(255, 255, 255));
+        txtConfigEndereco.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtConfigEndereco.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel4.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefone:");
 
-        txtConfigTelefoneEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtConfigTelefoneEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtConfigTelefoneEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtConfigTelefone.setEditable(false);
+        txtConfigTelefone.setBackground(new java.awt.Color(255, 255, 255));
+        txtConfigTelefone.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtConfigTelefone.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel5.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Email:");
 
-        txtConfigEmailEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtConfigEmailEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtConfigEmailEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtConfigEmail.setEditable(false);
+        txtConfigEmail.setBackground(new java.awt.Color(255, 255, 255));
+        txtConfigEmail.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtConfigEmail.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel6.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Senha:");
 
-        psfConfigSenhaEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        psfConfigSenhaEmpresa.setForeground(new java.awt.Color(0, 0, 0));
-        psfConfigSenhaEmpresa.setText("jPasswordField1");
+        psfConfigSenha.setEditable(false);
+        psfConfigSenha.setBackground(new java.awt.Color(255, 255, 255));
+        psfConfigSenha.setForeground(new java.awt.Color(0, 0, 0));
+        psfConfigSenha.setText("jPasswordField1");
+
+        jLabel15.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("CNPJ:");
+
+        txtConfigCNPJ.setEditable(false);
+        txtConfigCNPJ.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -130,21 +207,23 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtConfigTelefoneEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
                     .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(txtConfigNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtConfigNome, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(txtConfigEnderecoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtConfigEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtConfigTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(122, 122, 122)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtConfigCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15)
                             .addComponent(jLabel6)
-                            .addComponent(txtConfigEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtConfigEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
-                            .addComponent(psfConfigSenhaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(psfConfigSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -158,20 +237,24 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtConfigNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtConfigEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtConfigNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfigEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtConfigEnderecoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(psfConfigSenhaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtConfigEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(psfConfigSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtConfigTelefoneEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtConfigTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfigCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(332, Short.MAX_VALUE))
         );
 
@@ -219,45 +302,52 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Nome:");
 
-        txtEditNomeEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtEditNomeEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtEditNomeEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtEditNome.setBackground(new java.awt.Color(255, 255, 255));
+        txtEditNome.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtEditNome.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel9.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Endereço:");
 
-        txtEditEnderecoEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtEditEnderecoEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtEditEnderecoEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtEditEndereco.setBackground(new java.awt.Color(255, 255, 255));
+        txtEditEndereco.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtEditEndereco.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel10.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Telefone:");
 
-        txtEditTelefoneEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtEditTelefoneEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtEditTelefoneEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtEditTelefone.setBackground(new java.awt.Color(255, 255, 255));
+        txtEditTelefone.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtEditTelefone.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel11.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Email:");
 
-        txtEditEmailEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        txtEditEmailEmpresa.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        txtEditEmailEmpresa.setForeground(new java.awt.Color(0, 0, 0));
+        txtEditEmail.setBackground(new java.awt.Color(255, 255, 255));
+        txtEditEmail.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        txtEditEmail.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel12.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Senha:");
 
-        psfEditSenhaEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        psfEditSenhaEmpresa.setForeground(new java.awt.Color(0, 0, 0));
-        psfEditSenhaEmpresa.setText("jPasswordField1");
+        psfEditSenha.setBackground(new java.awt.Color(255, 255, 255));
+        psfEditSenha.setForeground(new java.awt.Color(0, 0, 0));
+        psfEditSenha.setText("jPasswordField1");
 
-        btnSalvarEmpresa.setText("Salvar");
+        btnSalvar.setText("Salvar");
 
-        btnLimparCamposEmpresa.setText("Limpar campos");
+        btnLimparCampos.setText("Limpar campos");
+
+        jLabel16.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel16.setText("CNPJ:");
+
+        txtEditCNPJ.setBackground(new java.awt.Color(255, 255, 255));
+        txtEditCNPJ.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -266,23 +356,25 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLimparCamposEmpresa)
-                    .addComponent(txtEditTelefoneEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
+                    .addComponent(btnLimparCampos)
                     .addComponent(jLabel7)
+                    .addComponent(btnSalvar)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
-                            .addComponent(txtEditNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditNome, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
-                            .addComponent(txtEditEnderecoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtEditEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtEditTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(122, 122, 122)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEditCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16)
                             .addComponent(jLabel12)
-                            .addComponent(txtEditEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEditEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(psfEditSenhaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnSalvarEmpresa))
+                            .addComponent(psfEditSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -296,24 +388,28 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEditNomeEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEditEmailEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditNome, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEditEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEditEnderecoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(psfEditSenhaEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEditEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(psfEditSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel10)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel16))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtEditTelefoneEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtEditTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEditCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
-                .addComponent(btnLimparCamposEmpresa)
+                .addComponent(btnLimparCampos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalvarEmpresa)
+                .addComponent(btnSalvar)
                 .addContainerGap(229, Short.MAX_VALUE))
         );
 
@@ -350,13 +446,13 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Fechar o aplicativo:");
 
-        btnLogoutEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        btnLogoutEmpresa.setForeground(new java.awt.Color(0, 0, 0));
-        btnLogoutEmpresa.setText("Log-out");
+        btnLogout.setBackground(new java.awt.Color(255, 255, 255));
+        btnLogout.setForeground(new java.awt.Color(0, 0, 0));
+        btnLogout.setText("Log-out");
 
-        btnDesligarEmpresa.setBackground(new java.awt.Color(255, 255, 255));
-        btnDesligarEmpresa.setForeground(new java.awt.Color(0, 0, 0));
-        btnDesligarEmpresa.setText("Desligar");
+        btnDesligar.setBackground(new java.awt.Color(255, 255, 255));
+        btnDesligar.setForeground(new java.awt.Color(0, 0, 0));
+        btnDesligar.setText("Desligar");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -365,11 +461,11 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnLogoutEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnDesligarEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                    .addComponent(btnDesligar, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                     .addComponent(jLabel14))
                 .addGap(56, 56, 56))
         );
@@ -382,8 +478,8 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnLogoutEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDesligarEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDesligar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(358, Short.MAX_VALUE))
         );
 
@@ -465,16 +561,18 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDesligarEmpresa;
-    private javax.swing.JButton btnLimparCamposEmpresa;
-    private javax.swing.JButton btnLogoutEmpresa;
-    private javax.swing.JButton btnSalvarEmpresa;
+    private javax.swing.JButton btnDesligar;
+    private javax.swing.JButton btnLimparCampos;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -492,15 +590,17 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JPasswordField psfConfigSenhaEmpresa;
-    private javax.swing.JPasswordField psfEditSenhaEmpresa;
-    private javax.swing.JTextField txtConfigEmailEmpresa;
-    private javax.swing.JTextField txtConfigEnderecoEmpresa;
-    private javax.swing.JTextField txtConfigNomeEmpresa;
-    private javax.swing.JTextField txtConfigTelefoneEmpresa;
-    private javax.swing.JTextField txtEditEmailEmpresa;
-    private javax.swing.JTextField txtEditEnderecoEmpresa;
-    private javax.swing.JTextField txtEditNomeEmpresa;
-    private javax.swing.JTextField txtEditTelefoneEmpresa;
+    private javax.swing.JPasswordField psfConfigSenha;
+    private javax.swing.JPasswordField psfEditSenha;
+    private javax.swing.JTextField txtConfigCNPJ;
+    private javax.swing.JTextField txtConfigEmail;
+    private javax.swing.JTextField txtConfigEndereco;
+    private javax.swing.JTextField txtConfigNome;
+    private javax.swing.JTextField txtConfigTelefone;
+    private javax.swing.JTextField txtEditCNPJ;
+    private javax.swing.JTextField txtEditEmail;
+    private javax.swing.JTextField txtEditEndereco;
+    private javax.swing.JTextField txtEditNome;
+    private javax.swing.JTextField txtEditTelefone;
     // End of variables declaration//GEN-END:variables
 }
