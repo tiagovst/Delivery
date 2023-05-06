@@ -41,6 +41,7 @@ public class ControleConfiguracao implements ActionListener{
             
             this.telaConfiguracaoEmpresa.setVisible(true);
         }
+        serviceConfiguracao.mostrar();
     }
 
     @Override
@@ -49,14 +50,33 @@ public class ControleConfiguracao implements ActionListener{
         
         if (Sessao.getUsuarioLogado().equals("cliente")){
             if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnLogout())) {
-                serviceConfiguracao.logout();
-            }        
+                this.serviceConfiguracao.logout();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnSalvar())) {
+                this.serviceConfiguracao.salvar();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnLimparCampos())) {
+                this.serviceConfiguracao.limparCampos();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnDesligar())) {
+                this.serviceConfiguracao.desligar();
+            }
+                   
         }
         
 //        Ações para usuário empresa
         if (Sessao.getUsuarioLogado().equals("empresa")){
             if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnLogout())) {
                 serviceConfiguracao.logout();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnSalvar())) {
+                this.serviceConfiguracao.salvar();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnLimparCampos())) {
+                this.serviceConfiguracao.limparCampos();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnDesligar())) {
+                this.serviceConfiguracao.desligar();
             }
         
         }

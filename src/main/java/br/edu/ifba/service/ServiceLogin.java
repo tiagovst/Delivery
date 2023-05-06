@@ -27,8 +27,10 @@ public class ServiceLogin {
             Usuario userLog = usuarioDAO.pesquisar(usuarioLogin.getId());
             if (!userLog.getCnpj().equals("0")) {
                 Sessao.setUsuarioLogado("empresa");
+                Sessao.setId(userLog.getId());
             } else {
                 Sessao.setUsuarioLogado("cliente");
+                Sessao.setId(userLog.getId());
             }
             ControlePrincipal controlePrincipal = new ControlePrincipal();
         } else{
