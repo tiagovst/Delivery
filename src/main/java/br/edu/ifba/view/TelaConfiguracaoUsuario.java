@@ -83,9 +83,14 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         return txtEditTelefone;
     }
 
-    public JLabel getLblCNPJ() {
-        return lblCNPJ;
+    public JLabel getLblConfigCNPJ() {
+        return lblConfigCNPJ;
     }
+
+    public JLabel getLblEditCNPJ() {
+        return lblEditCNPJ;
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,7 +117,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         txtConfigEmail = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         psfConfigSenha = new javax.swing.JPasswordField();
-        lblCNPJ = new javax.swing.JLabel();
+        lblConfigCNPJ = new javax.swing.JLabel();
         txtConfigCNPJ = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new main.java.br.edu.ifba.components.PainelArredondado();
@@ -129,7 +134,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         psfEditSenha = new javax.swing.JPasswordField();
         btnSalvar = new javax.swing.JButton();
         btnLimparCampos = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
+        lblEditCNPJ = new javax.swing.JLabel();
         txtEditCNPJ = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
@@ -199,9 +204,9 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         psfConfigSenha.setForeground(new java.awt.Color(0, 0, 0));
         psfConfigSenha.setText("jPasswordField1");
 
-        lblCNPJ.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        lblCNPJ.setForeground(new java.awt.Color(0, 0, 0));
-        lblCNPJ.setText("CNPJ:");
+        lblConfigCNPJ.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        lblConfigCNPJ.setForeground(new java.awt.Color(0, 0, 0));
+        lblConfigCNPJ.setText("CNPJ:");
 
         txtConfigCNPJ.setEditable(false);
         txtConfigCNPJ.setBackground(new java.awt.Color(255, 255, 255));
@@ -227,7 +232,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtConfigCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCNPJ)
+                            .addComponent(lblConfigCNPJ)
                             .addComponent(jLabel6)
                             .addComponent(txtConfigEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
@@ -258,7 +263,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addComponent(lblCNPJ))
+                    .addComponent(lblConfigCNPJ))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtConfigTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -337,9 +342,9 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
 
         btnLimparCampos.setText("Limpar campos");
 
-        jLabel16.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("CNPJ:");
+        lblEditCNPJ.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        lblEditCNPJ.setForeground(new java.awt.Color(0, 0, 0));
+        lblEditCNPJ.setText("CNPJ:");
 
         txtEditCNPJ.setBackground(new java.awt.Color(255, 255, 255));
         txtEditCNPJ.setForeground(new java.awt.Color(0, 0, 0));
@@ -365,7 +370,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
                         .addGap(122, 122, 122)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEditCNPJ, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
+                            .addComponent(lblEditCNPJ)
                             .addComponent(jLabel12)
                             .addComponent(txtEditEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
@@ -396,7 +401,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel16))
+                    .addComponent(lblEditCNPJ))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEditTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -560,7 +565,6 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -577,7 +581,8 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblCNPJ;
+    private javax.swing.JLabel lblConfigCNPJ;
+    private javax.swing.JLabel lblEditCNPJ;
     private javax.swing.JPasswordField psfConfigSenha;
     private javax.swing.JPasswordField psfEditSenha;
     private javax.swing.JTextField txtConfigCNPJ;

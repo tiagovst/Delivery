@@ -54,9 +54,13 @@ public class ServiceConfiguracao {
             usuarioEditado.setTelefone(telaConfiguracaoUsuario.getTxtEditTelefone().getText());
             usuarioEditado.setEmail(telaConfiguracaoUsuario.getTxtEditEmail().getText());
             usuarioEditado.setSenha(senha);
+            usuarioEditado.setCnpj("0");
+            usuarioEditado.setId(Sessao.getId());
             
             if (validaCamposEdicao()) {
                 usuarioDAO.alterar(usuarioEditado);
+                JOptionPane.showMessageDialog(telaConfiguracaoUsuario, "Alterações salvas!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
             } else {
                 JOptionPane.showMessageDialog(telaConfiguracaoUsuario, "Preencha todos os campos!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
@@ -72,9 +76,12 @@ public class ServiceConfiguracao {
             usuarioEditado.setEmail(telaConfiguracaoEmpresa.getTxtEditEmail().getText());
             usuarioEditado.setSenha(senha);
             usuarioEditado.setCnpj(telaConfiguracaoEmpresa.getTxtEditCNPJ().getText());
+            usuarioEditado.setId(Sessao.getId());
             
             if (validaCamposEdicao()) {
-                usuarioDAO.alterar(usuarioEditado);
+                usuarioEmpresaDAO.alterar(usuarioEditado);
+                JOptionPane.showMessageDialog(telaConfiguracaoUsuario, "Alterações salvas!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
             } else {
                 JOptionPane.showMessageDialog(telaConfiguracaoUsuario, "Preencha todos os campos!", "ERRO", JOptionPane.ERROR_MESSAGE);
             }
@@ -102,8 +109,10 @@ public class ServiceConfiguracao {
     
     public void mostrar() {
         if (Sessao.getUsuarioLogado().equals("cliente")) {
-            telaConfiguracaoUsuario.getLblCNPJ().setVisible(false);
+            telaConfiguracaoUsuario.getLblConfigCNPJ().setVisible(false);
             telaConfiguracaoUsuario.getTxtConfigCNPJ().setVisible(false);
+            telaConfiguracaoUsuario.getLblEditCNPJ().setVisible(false);
+            telaConfiguracaoUsuario.getTxtEditCNPJ().setVisible(false);
             
             Usuario usuario = usuarioDAO.pesquisar(Sessao.getId());
             
@@ -117,9 +126,10 @@ public class ServiceConfiguracao {
             telaConfiguracaoUsuario.getTxtEditTelefone().setText(usuario.getTelefone());
             telaConfiguracaoUsuario.getTxtEditEmail().setText(usuario.getEmail());
             telaConfiguracaoUsuario.getPsfEditSenha().setText(usuario.getSenha());
+
             
         } else if (Sessao.getUsuarioLogado().equals("empresa")) {
-            Usuario usuario = usuarioDAO.pesquisar(Sessao.getId());
+            Usuario usuario = usuarioEmpresaDAO.pesquisar(Sessao.getId());
             
             telaConfiguracaoEmpresa.getTxtConfigNome().setText(usuario.getNome());
             telaConfiguracaoEmpresa.getTxtConfigEndereco().setText(usuario.getEndereco());

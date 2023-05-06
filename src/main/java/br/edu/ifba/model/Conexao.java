@@ -13,7 +13,7 @@ public class Conexao {
         
         if(conexao == null){
             try{
-                conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/delivery_ifba","root","");
+                conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/delivery","root","");
             } catch(SQLException e){
                 JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados!");
                 throw new RuntimeException(e);

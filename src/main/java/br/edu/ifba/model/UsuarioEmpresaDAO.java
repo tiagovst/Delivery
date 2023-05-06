@@ -70,5 +70,27 @@ public class UsuarioEmpresaDAO extends UsuarioDAO{
             return lastId;
     }
     
+    @Override
+    public void alterar(Usuario usuario){
+        
+        String sql = "UPDATE usuario SET nome = ?, email = ?, senha = md5(?), endereco = ?, telefone = ?, cnpj = ? WHERE id = ?";
+        
+        PreparedStatement pst;
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setString(1, usuario.getNome());
+            pst.setString(2, usuario.getEmail());
+            pst.setString(3, usuario.getSenha());
+            pst.setString(4, usuario.getEndereco());
+            pst.setString(5, usuario.getTelefone());
+            pst.setString(6, usuario.getCnpj());
+            pst.setInt(7, usuario.getId());
+            pst.execute();
+            pst.close();                
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+    }
+    
     
 }

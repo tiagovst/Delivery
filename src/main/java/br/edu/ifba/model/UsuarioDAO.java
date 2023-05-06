@@ -155,7 +155,7 @@ public class UsuarioDAO {
        
     public void alterar(Usuario usuario){
         
-        String sql = "UPDATE usuario SET nome = ?, email = ?, senha = mds(?), endereco = ?, telefone = ?, cnpj = 0 WHERE id = ?";
+        String sql = "UPDATE usuario SET nome = ?, email = ?, senha = md5(?), endereco = ?, telefone = ?, cnpj = 0 WHERE id = ?";
         
         PreparedStatement pst;
         try {

@@ -125,7 +125,7 @@
                                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtConfigCNPJ" min="-2" pref="306" max="-2" attributes="0"/>
-                                          <Component id="lblCNPJ" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblConfigCNPJ" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtConfigEmail" min="-2" pref="306" max="-2" attributes="0"/>
                                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -165,7 +165,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCNPJ" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblConfigCNPJ" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -312,7 +312,7 @@
                         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCNPJ">
+                    <Component class="javax.swing.JLabel" name="lblConfigCNPJ">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Liberation Sans" size="16" style="0"/>
@@ -407,7 +407,7 @@
                                       <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="txtEditCNPJ" min="-2" pref="306" max="-2" attributes="0"/>
-                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblEditCNPJ" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtEditEmail" alignment="0" min="-2" pref="306" max="-2" attributes="0"/>
                                           <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -447,7 +447,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEditCNPJ" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -603,7 +603,7 @@
                         <Property name="text" type="java.lang.String" value="Limpar campos"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="jLabel16">
+                    <Component class="javax.swing.JLabel" name="lblEditCNPJ">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Liberation Sans" size="16" style="0"/>
