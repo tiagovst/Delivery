@@ -1,8 +1,13 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package main.java.br.edu.ifba.view;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
-
+/**
+ *
+ * @author tiago
+ */
 public class TelaPrincipal extends javax.swing.JFrame {
 
     /**
@@ -13,14 +18,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
     }
 
-    public JButton getBtnConfiguracao() {
-        return btnConfiguracao;
-    }
-
-    public JTextField getTxtPesquisa() {
-        return txtPesquisa;
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -29,9 +26,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtPesquisa = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        btnConfiguracao = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Delivery IFBA");
@@ -70,14 +67,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(575, Short.MAX_VALUE))
         );
 
-        txtPesquisa.setBackground(new java.awt.Color(204, 204, 204));
-        txtPesquisa.setForeground(new java.awt.Color(0, 0, 0));
-        txtPesquisa.setText("Pesquisar");
+        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setText("Pesquisar");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/images/pesquisar.png"))); // NOI18N
 
-        btnConfiguracao.setBackground(new java.awt.Color(204, 204, 204));
-        btnConfiguracao.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/images/configuracoes.png"))); // NOI18N
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/images/configuracoes.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -88,9 +85,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(3, 3, 3)
-                .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-                .addComponent(btnConfiguracao)
+                .addComponent(jButton1)
                 .addGap(21, 21, 21))
         );
         jPanel3Layout.setVerticalGroup(
@@ -101,11 +98,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(42, 42, 42)
-                            .addComponent(txtPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(48, 48, 48)
                             .addComponent(jLabel2)))
-                    .addComponent(btnConfiguracao))
+                    .addComponent(jButton1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -150,12 +147,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConfiguracao;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField txtPesquisa;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

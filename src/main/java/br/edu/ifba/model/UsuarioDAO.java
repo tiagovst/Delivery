@@ -101,42 +101,8 @@ public class UsuarioDAO {
         return usuario;
     }
     
-    // pesquisar por id
-    public Usuario pesquisar(int id){
-        String sql = "SELECT * FROM usuario WHERE id = ?";
-        
-        Usuario usuario = new Usuario();
-        
-        PreparedStatement pst;
-        ResultSet rs;
-        
-        try {
-            pst = Conexao.getConexao().prepareStatement(sql);
-            pst.setInt(1, id);
-            rs = pst.executeQuery();
-            
-            if(rs.next()){
-                usuario.setId(rs.getInt("id"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
-                usuario.setEndereco(rs.getString("endereco"));
-                usuario.setTelefone(rs.getString("telefone"));
-                usuario.setCnpj(rs.getString("cnpj"));
-            }
-            
-            rs.close();
-            pst.close();
-            
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        }
-        
-        return usuario;
-    }
-    
     public boolean excluir(Usuario usuario){
-        String sql = "DELETE FROM usuario WHERE id = ?";
+        String sql = "DELETE FROM produto WHERE id = ?";
         
         PreparedStatement pst;
         

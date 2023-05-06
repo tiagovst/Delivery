@@ -2,7 +2,6 @@ package main.java.br.edu.ifba.service;
 
 import javax.swing.JOptionPane;
 import main.java.br.edu.ifba.controller.ControlePrincipal;
-import main.java.br.edu.ifba.model.Sessao;
 import main.java.br.edu.ifba.model.Usuario;
 import main.java.br.edu.ifba.model.UsuarioDAO;
 import main.java.br.edu.ifba.view.TelaLogin;
@@ -23,13 +22,6 @@ public class ServiceLogin {
         Usuario usuarioLogin = usuarioDAO.acesso(telaLogin.getTxtLogin().getText(), senha);
         if(usuarioLogin.getId() > 0){
             telaLogin.dispose();
-            
-            Usuario userLog = usuarioDAO.pesquisar(usuarioLogin.getId());
-            if (!userLog.getCnpj().equals("0")) {
-                Sessao.setUsuarioLogado("empresa");
-            } else {
-                Sessao.setUsuarioLogado("cliente");
-            }
             ControlePrincipal controlePrincipal = new ControlePrincipal();
         } else{
             JOptionPane.showMessageDialog(telaLogin, "Acesso Negado", "Erro", JOptionPane.ERROR_MESSAGE);

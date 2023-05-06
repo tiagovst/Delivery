@@ -2,65 +2,41 @@ package main.java.br.edu.ifba.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import main.java.br.edu.ifba.model.Sessao;
 import main.java.br.edu.ifba.service.ServiceConfiguracao;
 import main.java.br.edu.ifba.view.TelaConfiguracaoEmpresa;
 import main.java.br.edu.ifba.view.TelaConfiguracaoUsuario;
-import main.java.br.edu.ifba.view.TelaPrincipal;
 
 public class ControleConfiguracao implements ActionListener{
     
-    private TelaConfiguracaoUsuario telaConfiguracaoUsuario;
+    private TelaConfiguracaoUsuario telaCofiguracaoUsuario;
     private TelaConfiguracaoEmpresa telaConfiguracaoEmpresa;
     private ServiceConfiguracao serviceConfiguracao;
-    private TelaPrincipal telaPrincipal;
 
-    public ControleConfiguracao(TelaPrincipal telaPrincipal) {
-        this.telaPrincipal = telaPrincipal;
-        this.telaPrincipal.setVisible(false);
-        if (Sessao.getUsuarioLogado().equals("cliente")) {
-            this.telaConfiguracaoUsuario = new TelaConfiguracaoUsuario();
-            this.serviceConfiguracao = new ServiceConfiguracao(telaConfiguracaoUsuario);
-            
+    public ControleConfiguracao(String tipoUsuario) {
+        if (tipoUsuario.equals("cliente")) {
+            telaCofiguracaoUsuario = new TelaConfiguracaoUsuario();
+            serviceConfiguracao = new ServiceConfiguracao(telaCofiguracaoUsuario, tipoUsuario);
             //action listeners
-            this.telaConfiguracaoUsuario.getBtnLimparCampos().addActionListener(this);
-            this.telaConfiguracaoUsuario.getBtnSalvar().addActionListener(this);
-            this.telaConfiguracaoUsuario.getBtnLogout().addActionListener(this);
-            this.telaConfiguracaoUsuario.getBtnDesligar().addActionListener(this);
-            
-            this.telaConfiguracaoUsuario.setVisible(true);
-        } else if (Sessao.getUsuarioLogado().equals("empresa")) {
-            this.telaConfiguracaoEmpresa = new TelaConfiguracaoEmpresa();
-            this.serviceConfiguracao = new ServiceConfiguracao(telaConfiguracaoEmpresa);
-            
+            telaCofiguracaoUsuario.getBtnLimparCampos().addActionListener(this);
+            telaCofiguracaoUsuario.getBtnSalvar().addActionListener(this);
+            telaCofiguracaoUsuario.getBtnLogout().addActionListener(this);
+            telaCofiguracaoUsuario.getBtnDesligar().addActionListener(this);
+            telaCofiguracaoUsuario.setVisible(true);
+        } else if (tipoUsuario.equals("empresa")) {
+            serviceConfiguracao = new ServiceConfiguracao(telaConfiguracaoEmpresa, tipoUsuario);
+            telaConfiguracaoEmpresa = new TelaConfiguracaoEmpresa();
             //action listeners
-            this.telaConfiguracaoEmpresa.getBtnLimparCampos().addActionListener(this);
-            this.telaConfiguracaoEmpresa.getBtnSalvar().addActionListener(this);
-            this.telaConfiguracaoEmpresa.getBtnLogout().addActionListener(this);
-            this.telaConfiguracaoEmpresa.getBtnDesligar().addActionListener(this);
-            
-            this.telaConfiguracaoEmpresa.setVisible(true);
+            telaConfiguracaoEmpresa.getBtnLimparCampos().addActionListener(this);
+            telaConfiguracaoEmpresa.getBtnSalvar().addActionListener(this);
+            telaConfiguracaoEmpresa.getBtnLogout().addActionListener(this);
+            telaConfiguracaoEmpresa.getBtnDesligar().addActionListener(this);
+            telaConfiguracaoEmpresa.setVisible(true);
         }
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-//        Ações para usuário cliente
         
-        if (Sessao.getUsuarioLogado().equals("cliente")){
-            if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnLogout())) {
-                serviceConfiguracao.logout();
-            }        
-        }
-        
-//        Ações para usuário empresa
-        if (Sessao.getUsuarioLogado().equals("empresa")){
-            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnLogout())) {
-                serviceConfiguracao.logout();
-            }
-        
-        }
-
     }
     
     
