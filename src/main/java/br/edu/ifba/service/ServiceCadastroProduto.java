@@ -34,13 +34,11 @@ public class ServiceCadastroProduto {
             
             produto.setNome(telaCadastroProduto.getTxtCadastroNomeProduto().getText());
             
-            int auto_increment = produtoDAO.proximoId();
-            telaCadastroProduto.setCaminhoImagem("/home/tiago/Pictures/"+ auto_increment +".jpg");
-            produto.setFoto(this.telaCadastroProduto.getCaminhoImagem());
             
             produto.setPreco(Float.parseFloat(telaCadastroProduto.getTxtCadastroPrecoProduto().getText()));
             produto.setQuantidade(Integer.parseInt(telaCadastroProduto.getTxtCadastroQuantidadeProduto().getText()));
             produto.setEmpresa("tiago");
+            produto.setFoto(this.telaCadastroProduto.getCaminhoImagem());
             produtoDAO.inserir(produto);
             
             this.salvarImagem();

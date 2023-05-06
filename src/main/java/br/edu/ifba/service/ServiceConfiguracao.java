@@ -1,5 +1,7 @@
 package main.java.br.edu.ifba.service;
 
+import main.java.br.edu.ifba.controller.ControleLogin;
+import main.java.br.edu.ifba.model.Sessao;
 import main.java.br.edu.ifba.model.UsuarioDAO;
 import main.java.br.edu.ifba.model.UsuarioEmpresaDAO;
 import main.java.br.edu.ifba.view.TelaConfiguracaoEmpresa;
@@ -11,28 +13,25 @@ public class ServiceConfiguracao {
     private TelaConfiguracaoEmpresa telaConfiguracaoEmpresa;
     private UsuarioDAO usuarioDAO;
     private UsuarioEmpresaDAO usuarioEmpresaDAO;
-    private String tipoUsuario;
 
-    public ServiceConfiguracao(TelaConfiguracaoUsuario telaConfiguracaoUsuario, String tipoUsuario) {
+    public ServiceConfiguracao(TelaConfiguracaoUsuario telaConfiguracaoUsuario) {
         this.telaConfiguracaoUsuario = telaConfiguracaoUsuario;
         this.usuarioDAO = new UsuarioDAO();
-        this.tipoUsuario = tipoUsuario;
     }
     
-    public ServiceConfiguracao(TelaConfiguracaoEmpresa telaConfiguracaoEmpresa, String tipoUsuario){
+    public ServiceConfiguracao(TelaConfiguracaoEmpresa telaConfiguracaoEmpresa){
         this.telaConfiguracaoEmpresa = telaConfiguracaoEmpresa;
         this.usuarioEmpresaDAO = new UsuarioEmpresaDAO();
-        this.tipoUsuario = tipoUsuario;
     }
     
     public void limparCampos(){
-        if (tipoUsuario.equals("cliente")) {
+        if (Sessao.getUsuarioLogado().equals("cliente")) {
             telaConfiguracaoUsuario.getTxtEditNome().setText("");
             telaConfiguracaoUsuario.getTxtEditEndereco().setText("");
             telaConfiguracaoUsuario.getTxtEditTelefone().setText("");
             telaConfiguracaoUsuario.getTxtEditEmail().setText("");
             telaConfiguracaoUsuario.getPsfEditSenha().setText("");
-        } else if (tipoUsuario.equals("empresa")) {
+        } else if (Sessao.getUsuarioLogado().equals("empresa")) {
             telaConfiguracaoEmpresa.getTxtEditNome().setText("");
             telaConfiguracaoEmpresa.getTxtEditEndereco().setText("");
             telaConfiguracaoEmpresa.getTxtEditTelefone().setText("");
@@ -43,15 +42,26 @@ public class ServiceConfiguracao {
     }
     
     public void salvar(){
-        if (tipoUsuario.equals("cliente")) {
+        if (Sessao.getUsuarioLogado().equals("cliente")) {
             
-        } else if (tipoUsuario.equals("empresa")) {
+        } else if (Sessao.getUsuarioLogado().equals("empresa")) {
             
         }
     }
     
     public void logout() {
+        if (Sessao.getUsuarioLogado().equals("cliente")) {
+            this.telaConfiguracaoUsuario.dispose();
+            Sessao.setUsuarioLogado("");
+            ControleLogin controleLogin = new ControleLogin();
+        }
         
+        
+        if (Sessao.getUsuarioLogado().equals("empresa")) {
+            this.telaConfiguracaoEmpresa.dispose();
+            Sessao.setUsuarioLogado("");
+            ControleLogin controleLogin = new ControleLogin();
+        }
     }
     
     public void desligar() {
@@ -62,8 +72,11 @@ public class ServiceConfiguracao {
     
     }
     
-    public boolean validaCamposEdicao(String tipoUsuario) {
-        if (tipoUsuario.equals("cliente")) {
+    public boolean validaCamposEdicao() {
+        if (Sessao.getUsuarioLogado().equals("cliente")) {
+            
+            String senha = String.valueOf(this.telaConfiguracaoUsuario.getPsfEditSenha().getPassword());
+            
             if (telaConfiguracaoUsuario.getTxtEditNome().getText().equals("")) {
                 return false;
             } else if (telaConfiguracaoUsuario.getTxtEditEndereco().getText().equals("")) {
@@ -72,11 +85,14 @@ public class ServiceConfiguracao {
                 return false;
             } else if (telaConfiguracaoUsuario.getTxtEditEmail().getText().equals("")) {
                 return false;
-            } else if (telaConfiguracaoUsuario.getPsfEditSenha().getText().equals("")) {
+            } else if (senha.equals("")) {
                 return false;
             }
         
-        } else if (tipoUsuario.equals("empresa")) {
+        } else if (Sessao.getUsuarioLogado().equals("empresa")) {
+            
+            String senha = String.valueOf(this.telaConfiguracaoEmpresa.getPsfEditSenha().getPassword());
+            
             if (telaConfiguracaoEmpresa.getTxtEditNome().getText().equals("")) {
                 return false;
             } else if (telaConfiguracaoEmpresa.getTxtEditEndereco().getText().equals("")) {
@@ -85,7 +101,7 @@ public class ServiceConfiguracao {
                 return false;
             } else if (telaConfiguracaoEmpresa.getTxtEditEmail().getText().equals("")) {
                 return false;
-            } else if (telaConfiguracaoEmpresa.getPsfEditSenha().getText().equals("")) {
+            } else if (senha.equals("")) {
                 return false;
             } else if (telaConfiguracaoEmpresa.getTxtEditCNPJ().getText().equals("")) {
                 return false;
