@@ -1,9 +1,13 @@
 package main.java.br.edu.ifba.model;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 
 public class ProdutoDAO {
@@ -206,4 +210,17 @@ public class ProdutoDAO {
         return id;
         
     }
+    
+//    public void mostrarImagem(int id) {
+//        byte[] foto = null;
+//        BufferedImage imagem = null;
+//        
+//        Produto produto = pesquisar(id);
+//        
+//        try {
+//            imagem = ImageIO.read(new ByteArrayInputStream(produto.getFoto()));
+//        } catch (IOException e) {
+//            System.out.println(e);
+//        }
+//    }
 }
