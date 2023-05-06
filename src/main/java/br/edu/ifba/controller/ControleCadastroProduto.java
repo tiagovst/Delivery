@@ -9,14 +9,21 @@ import main.java.br.edu.ifba.view.TelaConfiguracaoEmpresa;
 public class ControleCadastroProduto implements ActionListener {
     private TelaCadastroProduto telaCadastroProduto;
     private ServiceCadastroProduto serviceCadastroProduto;
+    private TelaConfiguracaoEmpresa telaConfiguracaoEmpresa;
 
-    public ControleCadastroProduto() {
+    public ControleCadastroProduto(TelaConfiguracaoEmpresa telaConfiguracaoEmpresa, 
+            String acao, int id) {
         this.telaCadastroProduto = new TelaCadastroProduto();
-        this.serviceCadastroProduto = new ServiceCadastroProduto(telaCadastroProduto);
+        this.telaConfiguracaoEmpresa = telaConfiguracaoEmpresa;
+        this.serviceCadastroProduto = new ServiceCadastroProduto(telaCadastroProduto, telaConfiguracaoEmpresa);
         
         this.telaCadastroProduto.getBtnCarregarFoto().addActionListener(this);
         this.telaCadastroProduto.getBtnSalvar().addActionListener(this);
         this.telaCadastroProduto.getBtnLimpar().addActionListener(this);
+        
+        if  (acao.equals("editar")){
+            serviceCadastroProduto.mostrar(id);
+        }
         
         this.telaCadastroProduto.setVisible(true);
     }

@@ -1,7 +1,11 @@
 package main.java.br.edu.ifba.service;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import main.java.br.edu.ifba.controller.ControleCadastroProduto;
 import main.java.br.edu.ifba.controller.ControleLogin;
+import main.java.br.edu.ifba.model.Produto;
+import main.java.br.edu.ifba.model.ProdutoDAO;
 import main.java.br.edu.ifba.model.Sessao;
 import main.java.br.edu.ifba.model.Usuario;
 import main.java.br.edu.ifba.model.UsuarioDAO;
@@ -16,6 +20,7 @@ public class ServiceConfiguracao {
     private TelaConfiguracaoEmpresa telaConfiguracaoEmpresa;
     private UsuarioDAO usuarioDAO;
     private UsuarioEmpresaDAO usuarioEmpresaDAO;
+    private ProdutoDAO produtoDAO;
 
     public ServiceConfiguracao(TelaConfiguracaoUsuario telaConfiguracaoUsuario) {
         this.telaConfiguracaoUsuario = telaConfiguracaoUsuario;
@@ -25,6 +30,7 @@ public class ServiceConfiguracao {
     public ServiceConfiguracao(TelaConfiguracaoEmpresa telaConfiguracaoEmpresa){
         this.telaConfiguracaoEmpresa = telaConfiguracaoEmpresa;
         this.usuarioEmpresaDAO = new UsuarioEmpresaDAO();
+        this.produtoDAO = new ProdutoDAO();
     }
     
     public void limparCampos(){
@@ -185,6 +191,37 @@ public class ServiceConfiguracao {
         }
         return true;
         
+    }
+    
+    public void manejoProduto(String acao) {
+        if (acao.equals("novo")) {
+            ControleCadastroProduto controle = new ControleCadastroProduto(this.telaConfiguracaoEmpresa, 
+            "novo", 0);
+        } else if (acao.equals("editar")) {
+            
+            Produto produto = produtoDAO.pesquisar(
+                    this.telaConfiguracaoEmpresa.getTableMeusProdutos().getSelectedRow());
+            ControleCadastroProduto controle = new ControleCadastroProduto(
+                    this.telaConfiguracaoEmpresa, 
+                    "editar", produto.getId() + 1);
+        }
+    }
+    
+    public void listar() {
+        listaDados(produtoDAO.listar());
+    }
+    
+    private void listaDados(ArrayList<Produto> listaProdutos) {     
+        this.telaConfiguracaoEmpresa.limpaTabela();
+        for(int i=0;i<listaProdutos.size();i++){
+            this.telaConfiguracaoEmpresa.adicionaItem
+                           (listaProdutos.get(i).getId(),
+                           listaProdutos.get(i).getFoto(),
+                           listaProdutos.get(i).getNome(),
+                           listaProdutos.get(i).getPreco(),
+                           listaProdutos.get(i).getQuantidade());
+        }      
+     
     }
     
 }

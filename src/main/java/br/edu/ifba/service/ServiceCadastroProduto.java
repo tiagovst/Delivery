@@ -11,6 +11,9 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import main.java.br.edu.ifba.model.Produto;
 import main.java.br.edu.ifba.model.ProdutoDAO;
+import main.java.br.edu.ifba.model.Sessao;
+import main.java.br.edu.ifba.model.Usuario;
+import main.java.br.edu.ifba.model.UsuarioDAO;
 import main.java.br.edu.ifba.view.TelaCadastroProduto;
 import main.java.br.edu.ifba.view.TelaConfiguracaoEmpresa;
 
@@ -19,13 +22,18 @@ public class ServiceCadastroProduto {
     private TelaConfiguracaoEmpresa telaConfiguracaoEmpresa;
     private ProdutoDAO produtoDAO;
     private BufferedImage imagem;
+    private UsuarioDAO usuarioDAO;
+    private ServiceConfiguracao serviceConfiguracao;
 
-    public ServiceCadastroProduto(TelaCadastroProduto telaCadastroProduto) {
+    public ServiceCadastroProduto(TelaCadastroProduto telaCadastroProduto,
+            TelaConfiguracaoEmpresa telaConfiguracaoEmpresa) {
         this.telaCadastroProduto = telaCadastroProduto;
-//        this.telaConfiguracaoEmpresa = telaConfiguracaoEmpresa;
+        this.usuarioDAO = new UsuarioDAO();
+        this.telaConfiguracaoEmpresa = telaConfiguracaoEmpresa;
+        this.serviceConfiguracao = new ServiceConfiguracao(telaConfiguracaoEmpresa);
         this.produtoDAO = new ProdutoDAO();
         this.imagem = null;
-//        this.telaConfiguracaoEmpresa.setVisible(false);
+        this.telaConfiguracaoEmpresa.setVisible(false);
     }
     
     public void salvar() {
@@ -37,13 +45,17 @@ public class ServiceCadastroProduto {
             
             produto.setPreco(Float.parseFloat(telaCadastroProduto.getTxtCadastroPrecoProduto().getText()));
             produto.setQuantidade(Integer.parseInt(telaCadastroProduto.getTxtCadastroQuantidadeProduto().getText()));
-            produto.setEmpresa("tiago");
+            
+            Usuario usuario = usuarioDAO.pesquisar(Sessao.getId());
+            produto.setEmpresa(usuario.getNome());
+            
             produto.setFoto(this.telaCadastroProduto.getCaminhoImagem());
             produtoDAO.inserir(produto);
             
             this.salvarImagem();
             this.telaCadastroProduto.dispose();
-//            this.telaConfiguracaoEmpresa.setVisible(true);
+            this.serviceConfiguracao.listar();
+            this.telaConfiguracaoEmpresa.setVisible(true);
             
         } else{
             JOptionPane.showMessageDialog(telaCadastroProduto, "Preencha todos os campos!","Erro",JOptionPane.ERROR_MESSAGE);
@@ -71,6 +83,15 @@ public class ServiceCadastroProduto {
             JOptionPane.showMessageDialog(telaCadastroProduto, "Não obteve o carregamento do arquivo");
         }
     }
+//    
+//    FileInputStream fis = new FileInputStream(imagemArquivo);
+//    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//    byte[] buffer = new byte[4096];
+//    int bytesRead;
+//    while ((bytesRead = fis.read(buffer)) != -1) {
+//        baos.write(buffer, 0, bytesRead);
+//    }
+//    byte[] imagemBytes = baos.toByteArray();
     
     private void salvarImagem(){
         
@@ -104,4 +125,26 @@ public class ServiceCadastroProduto {
             return true;
         }
     }
+    
+    public void recebeImagem() {
+            // converter o array de bytes em um objeto ImageIcon
+        ImageIcon imagemIcon = new ImageIcon(this.telaCadastroProduto.getCaminhoImagem());
+
+        // criar um JLabel e adicionar o ImageIcon
+        this.telaCadastroProduto.getLblCadastroFotoProduto().setIcon(imagemIcon);
+    }
+    
+    public void mostrar(int id) {
+        
+        Produto produto = produtoDAO.pesquisar(id);
+        
+        this.telaCadastroProduto.getTxtCadastroNomeProduto().setText(produto.getNome());
+        this.telaCadastroProduto.getTxtCadastroPrecoProduto().setText(String.valueOf(produto.getPreco()));
+        this.telaCadastroProduto.getTxtCadastroQuantidadeProduto().setText(String.valueOf(produto.getQuantidade()));
+        
+        ImageIcon icon = new ImageIcon(produto.getFoto());
+        this.telaCadastroProduto.getLblCadastroFotoProduto().setIcon(icon);
+    }
+    
+    
 }

@@ -38,6 +38,11 @@ public class ControleConfiguracao implements ActionListener{
             this.telaConfiguracaoEmpresa.getBtnSalvar().addActionListener(this);
             this.telaConfiguracaoEmpresa.getBtnLogout().addActionListener(this);
             this.telaConfiguracaoEmpresa.getBtnDesligar().addActionListener(this);
+            this.telaConfiguracaoEmpresa.getBtnMeusProdutosAdicionar().addActionListener(this);
+            this.telaConfiguracaoEmpresa.getBtnMeusProdutosExcluir().addActionListener(this);
+            this.telaConfiguracaoEmpresa.getBtnMeusProdutosEditar().addActionListener(this);
+            
+            this.serviceConfiguracao.listar();
             
             this.telaConfiguracaoEmpresa.setVisible(true);
         }
@@ -77,6 +82,15 @@ public class ControleConfiguracao implements ActionListener{
             }
             if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnDesligar())) {
                 this.serviceConfiguracao.desligar();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnMeusProdutosAdicionar())) {
+                this.serviceConfiguracao.manejoProduto("novo");
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnMeusProdutosExcluir())) {
+                this.serviceConfiguracao.desligar();
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnMeusProdutosEditar())) {
+                this.serviceConfiguracao.manejoProduto("editar");
             }
         
         }

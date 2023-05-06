@@ -100,7 +100,7 @@ public class ProdutoDAO {
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
                 produto.setFoto(rs.getString("foto"));
-                produto.setPreco(rs.getFloat("preço"));
+                produto.setPreco(rs.getFloat("preco"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 lista.add(produto);
             }
@@ -133,7 +133,7 @@ public class ProdutoDAO {
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
                 produto.setFoto(rs.getString("foto"));
-                produto.setPreco(rs.getFloat("preço"));
+                produto.setPreco(rs.getFloat("preco"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setEmpresa(rs.getString("empresa"));
             }
@@ -165,7 +165,7 @@ public class ProdutoDAO {
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
                 produto.setFoto(rs.getString("foto"));
-                produto.setPreco(rs.getFloat("preço"));
+                produto.setPreco(rs.getFloat("preco"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setEmpresa(rs.getString("empresa"));
                 lista.add(produto);
@@ -192,7 +192,7 @@ public class ProdutoDAO {
         
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
-            pst.setString(1, "delivery_ifba");
+            pst.setString(1, "delivery");
             pst.setString(2, "produto");
             rs = pst.executeQuery();
             

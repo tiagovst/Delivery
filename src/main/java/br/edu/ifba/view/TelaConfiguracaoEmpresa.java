@@ -2,18 +2,35 @@ package main.java.br.edu.ifba.view;
 
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import main.java.br.edu.ifba.components.ImageIconTableCellRenderer;
 
 public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
+    
+    private final DefaultTableModel modelo;
 
     /**
      * Creates new form TelaConfiguracao
      */
     public TelaConfiguracaoEmpresa() {
         initComponents();
+        this.modelo = (DefaultTableModel) this.getTableMeusProdutos().getModel();        
         this.setLocationRelativeTo(this);
         this.setExtendedState(MAXIMIZED_BOTH);
 
+    }
+    
+    public void limpaTabela(){
+        int linhas = this.modelo.getRowCount();
+        for(int i=0;i<linhas;i++){
+            this.modelo.removeRow(0);
+        }
+    }
+    
+    public void adicionaItem(Object... objects){
+        this.modelo.addRow(objects);
     }
     
     //getters
@@ -80,6 +97,26 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
     public JTextField getTxtEditTelefone() {
         return txtEditTelefone;
     }
+
+    public DefaultTableModel getModelo() {
+        return modelo;
+    }
+
+    public JButton getBtnMeusProdutosAdicionar() {
+        return btnMeusProdutosAdicionar;
+    }
+
+    public JButton getBtnMeusProdutosExcluir() {
+        return btnMeusProdutosExcluir;
+    }
+
+    public JButton getBtnMeusProdutosEditar() {
+        return btnMeusProdutosEditar;
+    }
+
+    public JTable getTableMeusProdutos() {
+        return tableMeusProdutos;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -108,6 +145,12 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         txtConfigCNPJ = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
+        jPanel9 = new main.java.br.edu.ifba.components.PainelArredondado();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableMeusProdutos = new javax.swing.JTable();
+        btnMeusProdutosEditar = new javax.swing.JButton();
+        btnMeusProdutosExcluir = new javax.swing.JButton();
+        btnMeusProdutosAdicionar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new main.java.br.edu.ifba.components.PainelArredondado();
         jLabel7 = new javax.swing.JLabel();
@@ -277,15 +320,86 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Minhas Informações", jPanel3);
 
+        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel9.setBackground(new java.awt.Color(0, 255, 153));
+
+        tableMeusProdutos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Foto", "Nome", "Preço", "Quantidade"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tableMeusProdutos);
+
+        btnMeusProdutosEditar.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        btnMeusProdutosEditar.setText("Editar");
+        btnMeusProdutosEditar.setMaximumSize(new java.awt.Dimension(80, 29));
+        btnMeusProdutosEditar.setMinimumSize(new java.awt.Dimension(80, 29));
+
+        btnMeusProdutosExcluir.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        btnMeusProdutosExcluir.setText("Excluir");
+
+        btnMeusProdutosAdicionar.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
+        btnMeusProdutosAdicionar.setText("+");
+        btnMeusProdutosAdicionar.setMaximumSize(new java.awt.Dimension(80, 29));
+        btnMeusProdutosAdicionar.setMinimumSize(new java.awt.Dimension(80, 29));
+        btnMeusProdutosAdicionar.setPreferredSize(new java.awt.Dimension(80, 29));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(btnMeusProdutosEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMeusProdutosExcluir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMeusProdutosAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMeusProdutosEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMeusProdutosExcluir)
+                    .addComponent(btnMeusProdutosAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
+        );
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1086, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 765, Short.MAX_VALUE)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Meus Produtos", jPanel8);
@@ -427,7 +541,7 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Editar", jPanel4);
@@ -564,6 +678,9 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
     private javax.swing.JButton btnDesligar;
     private javax.swing.JButton btnLimparCampos;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnMeusProdutosAdicionar;
+    private javax.swing.JButton btnMeusProdutosEditar;
+    private javax.swing.JButton btnMeusProdutosExcluir;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -589,9 +706,12 @@ public class TelaConfiguracaoEmpresa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JPasswordField psfConfigSenha;
     private javax.swing.JPasswordField psfEditSenha;
+    private javax.swing.JTable tableMeusProdutos;
     private javax.swing.JTextField txtConfigCNPJ;
     private javax.swing.JTextField txtConfigEmail;
     private javax.swing.JTextField txtConfigEndereco;
