@@ -25,6 +25,7 @@ public class ServiceLogin {
             telaLogin.dispose();
             
             Usuario userLog = usuarioDAO.pesquisar(usuarioLogin.getId());
+            Sessao.setUsuario(userLog.getNome());
             if (!userLog.getCnpj().equals("0")) {
                 Sessao.setUsuarioLogado("empresa");
                 Sessao.setId(userLog.getId());

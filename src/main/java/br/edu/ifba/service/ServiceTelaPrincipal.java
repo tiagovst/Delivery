@@ -1,6 +1,7 @@
 package main.java.br.edu.ifba.service;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import main.java.br.edu.ifba.model.Produto;
 import main.java.br.edu.ifba.model.ProdutoDAO;
 import main.java.br.edu.ifba.view.TelaPrincipal;
@@ -21,8 +22,10 @@ public class ServiceTelaPrincipal {
     private void listaDados(ArrayList<Produto> listaProdutos) {     
         this.telaPrincipal.limpaTabela();
         for(int i=0;i<listaProdutos.size();i++){
+            ImageIcon icon = new ImageIcon(listaProdutos.get(i).getFoto());
+            
             this.telaPrincipal.adicionaItem
-                           (listaProdutos.get(i).getFoto(),
+                           (icon,
                            listaProdutos.get(i).getNome(),
                            listaProdutos.get(i).getPreco(),
                            listaProdutos.get(i).getQuantidade(),

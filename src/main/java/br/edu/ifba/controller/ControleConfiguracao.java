@@ -27,6 +27,7 @@ public class ControleConfiguracao implements ActionListener{
             this.telaConfiguracaoUsuario.getBtnSalvar().addActionListener(this);
             this.telaConfiguracaoUsuario.getBtnLogout().addActionListener(this);
             this.telaConfiguracaoUsuario.getBtnDesligar().addActionListener(this);
+            this.telaConfiguracaoUsuario.getBtnEncerrar().addActionListener(this);
             
             this.telaConfiguracaoUsuario.setVisible(true);
         } else if (Sessao.getUsuarioLogado().equals("empresa")) {
@@ -41,7 +42,8 @@ public class ControleConfiguracao implements ActionListener{
             this.telaConfiguracaoEmpresa.getBtnMeusProdutosAdicionar().addActionListener(this);
             this.telaConfiguracaoEmpresa.getBtnMeusProdutosExcluir().addActionListener(this);
             this.telaConfiguracaoEmpresa.getBtnMeusProdutosEditar().addActionListener(this);
-            
+            this.telaConfiguracaoEmpresa.getBtnEncerrar().addActionListener(this);
+
             this.serviceConfiguracao.listar();
             
             this.telaConfiguracaoEmpresa.setVisible(true);
@@ -66,6 +68,9 @@ public class ControleConfiguracao implements ActionListener{
             if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnDesligar())) {
                 this.serviceConfiguracao.desligar();
             }
+            if (ae.getSource().equals(this.telaConfiguracaoUsuario.getBtnEncerrar())) {
+                this.serviceConfiguracao.encerrar();
+            }
                    
         }
         
@@ -87,10 +92,13 @@ public class ControleConfiguracao implements ActionListener{
                 this.serviceConfiguracao.manejoProduto("novo");
             }
             if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnMeusProdutosExcluir())) {
-                this.serviceConfiguracao.desligar();
+                this.serviceConfiguracao.excluirProduto();
             }
             if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnMeusProdutosEditar())) {
                 this.serviceConfiguracao.manejoProduto("editar");
+            }
+            if (ae.getSource().equals(this.telaConfiguracaoEmpresa.getBtnEncerrar())) {
+                this.serviceConfiguracao.encerrar();
             }
         
         }

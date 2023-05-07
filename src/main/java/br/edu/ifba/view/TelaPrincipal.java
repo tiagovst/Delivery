@@ -4,6 +4,9 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
+import main.java.br.edu.ifba.components.ImageRenderer;
 
 public class TelaPrincipal extends javax.swing.JFrame {
     
@@ -17,6 +20,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setExtendedState(MAXIMIZED_BOTH);
         this.modelo = (DefaultTableModel) tableProduto.getModel();
         this.setLocationRelativeTo(null);
+        
     }
     
     public void limpaTabela(){
@@ -99,6 +103,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         txtPesquisa.setBackground(new java.awt.Color(204, 204, 204));
         txtPesquisa.setForeground(new java.awt.Color(0, 0, 0));
         txtPesquisa.setText("Pesquisar");
+        txtPesquisa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txtPesquisaMouseClicked(evt);
+            }
+        });
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/main/java/images/pesquisar.png"))); // NOI18N
 
@@ -114,7 +123,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.String.class
+                java.lang.Byte.class, java.lang.String.class, java.lang.Float.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
@@ -128,6 +137,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tableProduto.setRowHeight(200);
+        TableColumnModel columnModel = tableProduto.getColumnModel();
+        TableColumn fotoColumn = columnModel.getColumn(0);
+        fotoColumn.setCellRenderer(new ImageRenderer());
         jScrollPane1.setViewportView(tableProduto);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -171,6 +184,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPesquisaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPesquisaMouseClicked
+        this.getTxtPesquisa().setText("");
+    }//GEN-LAST:event_txtPesquisaMouseClicked
 
     /**
      * @param args the command line arguments

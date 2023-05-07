@@ -1,6 +1,7 @@
 package main.java.br.edu.ifba.service;
 
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import main.java.br.edu.ifba.controller.ControleCadastroProduto;
 import main.java.br.edu.ifba.controller.ControleLogin;
@@ -15,7 +16,6 @@ import main.java.br.edu.ifba.view.TelaConfiguracaoUsuario;
 
 public class ServiceConfiguracao {
     
-    private Usuario usuario;
     private TelaConfiguracaoUsuario telaConfiguracaoUsuario;
     private TelaConfiguracaoEmpresa telaConfiguracaoEmpresa;
     private UsuarioDAO usuarioDAO;
@@ -109,6 +109,30 @@ public class ServiceConfiguracao {
         }
     }
     
+    public void encerrar(){
+        
+        if (Sessao.getUsuarioLogado().equals("cliente")){
+            if(JOptionPane.showConfirmDialog(telaConfiguracaoUsuario, "Deseja realmente excluir?", "Confirmação de exclusão", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0){
+        
+                if (usuarioDAO.excluir(Sessao.getId())){
+                    ControleLogin controleLogin = new ControleLogin();
+                    this.telaConfiguracaoUsuario.dispose();
+                }
+            }    
+        } else if (Sessao.getUsuarioLogado().equals("empresa")){
+            if(JOptionPane.showConfirmDialog(telaConfiguracaoEmpresa, "Deseja realmente excluir?", "Confirmação de exclusão", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0){
+        
+                if (usuarioEmpresaDAO.excluir(Sessao.getId())){
+                    ControleLogin controleLogin = new ControleLogin();
+                    this.telaConfiguracaoEmpresa.dispose();
+                }
+            }
+        }
+    }
+    
+    
     public void desligar() {
         System.exit(0);
     }
@@ -131,7 +155,6 @@ public class ServiceConfiguracao {
             telaConfiguracaoUsuario.getTxtEditEndereco().setText(usuario.getEndereco());
             telaConfiguracaoUsuario.getTxtEditTelefone().setText(usuario.getTelefone());
             telaConfiguracaoUsuario.getTxtEditEmail().setText(usuario.getEmail());
-            telaConfiguracaoUsuario.getPsfEditSenha().setText(usuario.getSenha());
 
             
         } else if (Sessao.getUsuarioLogado().equals("empresa")) {
@@ -147,7 +170,6 @@ public class ServiceConfiguracao {
             telaConfiguracaoEmpresa.getTxtEditEndereco().setText(usuario.getEndereco());
             telaConfiguracaoEmpresa.getTxtEditTelefone().setText(usuario.getTelefone());
             telaConfiguracaoEmpresa.getTxtEditEmail().setText(usuario.getEmail());
-            telaConfiguracaoEmpresa.getPsfEditSenha().setText(usuario.getSenha());
             telaConfiguracaoEmpresa.getTxtEditCNPJ().setText(usuario.getCnpj());
             
         }
@@ -195,33 +217,65 @@ public class ServiceConfiguracao {
     
     public void manejoProduto(String acao) {
         if (acao.equals("novo")) {
-            ControleCadastroProduto controle = new ControleCadastroProduto(this.telaConfiguracaoEmpresa, 
-            "novo", 0);
+            ControleCadastroProduto controle = new ControleCadastroProduto(this.telaConfiguracaoEmpresa, "novo", 0);
         } else if (acao.equals("editar")) {
             
-            Produto produto = produtoDAO.pesquisar(
-                    this.telaConfiguracaoEmpresa.getTableMeusProdutos().getSelectedRow());
-            ControleCadastroProduto controle = new ControleCadastroProduto(
-                    this.telaConfiguracaoEmpresa, 
-                    "editar", produto.getId() + 1);
+            int item = this.telaConfiguracaoEmpresa.getTableMeusProdutos().getSelectedRow();
+            if (item >= 0) {
+                Produto produto = new Produto();
+                
+                produto.setId((int) this.telaConfiguracaoEmpresa.getModelo().getValueAt(item, 0));
+                
+                ControleCadastroProduto controle = new ControleCadastroProduto(this.telaConfiguracaoEmpresa, "editar", produto.getId());
+            }
+            
         }
     }
     
     public void listar() {
-        listaDados(produtoDAO.listar());
+        String usuarioLogado = Sessao.getUsuarioLogado();
+        
+        if (usuarioLogado.equals("empresa")){
+            
+                listaDados(produtoDAO.listarPorEmpresa(Sessao.getUsuario()));
+            
+        }
+        
     }
     
     private void listaDados(ArrayList<Produto> listaProdutos) {     
         this.telaConfiguracaoEmpresa.limpaTabela();
         for(int i=0;i<listaProdutos.size();i++){
+            ImageIcon icon = new ImageIcon(listaProdutos.get(i).getFoto());
             this.telaConfiguracaoEmpresa.adicionaItem
                            (listaProdutos.get(i).getId(),
-                           listaProdutos.get(i).getFoto(),
+                           icon,
                            listaProdutos.get(i).getNome(),
                            listaProdutos.get(i).getPreco(),
                            listaProdutos.get(i).getQuantidade());
         }      
      
+    }
+    
+    
+    public void excluirProduto(){
+        int item = this.telaConfiguracaoEmpresa.getTableMeusProdutos().getSelectedRow();
+        
+        if (item >= 0) {
+            if(JOptionPane.showConfirmDialog(telaConfiguracaoEmpresa, "Deseja realmente excluir?", "Confirmação de exclusão", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0){
+           
+                Produto produto = new Produto();
+                produto.setId((int) this.telaConfiguracaoEmpresa.getModelo().getValueAt(item, 0));
+
+                if (produtoDAO.excluir(produto)) {
+                    telaConfiguracaoEmpresa.getModelo().removeRow(item);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(telaConfiguracaoEmpresa, "Selecione um item");
+  
+        }
     }
     
 }

@@ -16,6 +16,9 @@ public class ControlePrincipal implements ActionListener, KeyListener{
         this.serviceTelaPrincipal = new ServiceTelaPrincipal(telaPrincipal);
         
         this.telaPrincipal.getBtnConfiguracao().addActionListener(this);
+        this.telaPrincipal.getTxtPesquisa().addKeyListener(this);
+        
+        serviceTelaPrincipal.listar();
         this.telaPrincipal.setVisible(true);
     }
 
@@ -37,7 +40,7 @@ public class ControlePrincipal implements ActionListener, KeyListener{
     @Override
     public void keyReleased(KeyEvent e) {
         if(e.getSource().equals(telaPrincipal.getTxtPesquisa())){
-//            this.serviceTelaPrincipal.pesquisar();
+            this.serviceTelaPrincipal.pesquisar();
         }
     }
     

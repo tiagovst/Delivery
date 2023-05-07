@@ -3,7 +3,6 @@ package main.java.br.edu.ifba.view;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
@@ -21,6 +20,10 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
     public JButton getBtnDesligar() {
 
         return btnDesligar;
+    }
+
+    public JButton getBtnEncerrar() {
+        return btnEncerrar;
     }
 
     public JButton getBtnLimparCampos() {
@@ -142,6 +145,8 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         btnLogout = new javax.swing.JButton();
         btnDesligar = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        btnEncerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Configurações");
@@ -202,7 +207,6 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         psfConfigSenha.setEditable(false);
         psfConfigSenha.setBackground(new java.awt.Color(255, 255, 255));
         psfConfigSenha.setForeground(new java.awt.Color(0, 0, 0));
-        psfConfigSenha.setText("jPasswordField1");
 
         lblConfigCNPJ.setFont(new java.awt.Font("Liberation Sans", 0, 16)); // NOI18N
         lblConfigCNPJ.setForeground(new java.awt.Color(0, 0, 0));
@@ -439,12 +443,12 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         jLabel13.setBackground(new java.awt.Color(255, 255, 255));
         jLabel13.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Log-out:");
+        jLabel13.setText("Log-out");
 
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Fechar o aplicativo:");
+        jLabel14.setText("Fechar o aplicativo");
 
         btnLogout.setBackground(new java.awt.Color(255, 255, 255));
         btnLogout.setForeground(new java.awt.Color(0, 0, 0));
@@ -453,6 +457,15 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
         btnDesligar.setBackground(new java.awt.Color(255, 255, 255));
         btnDesligar.setForeground(new java.awt.Color(0, 0, 0));
         btnDesligar.setText("Desligar");
+
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel15.setFont(new java.awt.Font("Liberation Sans", 0, 36)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Encerrar minha conta");
+
+        btnEncerrar.setBackground(new java.awt.Color(255, 255, 255));
+        btnEncerrar.setForeground(new java.awt.Color(0, 0, 0));
+        btnEncerrar.setText("Encerrar");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -468,6 +481,12 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
                     .addComponent(btnDesligar, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
                     .addComponent(jLabel14))
                 .addGap(56, 56, 56))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(269, 269, 269)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnEncerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                    .addComponent(jLabel15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -480,7 +499,11 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
                     .addComponent(btnDesligar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addGap(113, 113, 113)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEncerrar, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -556,6 +579,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDesligar;
+    private javax.swing.JButton btnEncerrar;
     private javax.swing.JButton btnLimparCampos;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSalvar;
@@ -565,6 +589,7 @@ public class TelaConfiguracaoUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

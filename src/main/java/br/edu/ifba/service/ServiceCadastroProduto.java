@@ -2,9 +2,13 @@ package main.java.br.edu.ifba.service;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import javax.imageio.ImageIO;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -38,24 +42,44 @@ public class ServiceCadastroProduto {
     
     public void salvar() {
         if (validaCampos()) {
-            Produto produto = new Produto();
-            
-            produto.setNome(telaCadastroProduto.getTxtCadastroNomeProduto().getText());
-            
-            
-            produto.setPreco(Float.parseFloat(telaCadastroProduto.getTxtCadastroPrecoProduto().getText()));
-            produto.setQuantidade(Integer.parseInt(telaCadastroProduto.getTxtCadastroQuantidadeProduto().getText()));
-            
-            Usuario usuario = usuarioDAO.pesquisar(Sessao.getId());
-            produto.setEmpresa(usuario.getNome());
-            
-            produto.setFoto(this.telaCadastroProduto.getCaminhoImagem());
-            produtoDAO.inserir(produto);
-            
-            this.salvarImagem();
-            this.telaCadastroProduto.dispose();
-            this.serviceConfiguracao.listar();
-            this.telaConfiguracaoEmpresa.setVisible(true);
+            FileInputStream fis = null;
+            try {
+                Produto produto = new Produto();
+                produto.setNome(telaCadastroProduto.getTxtCadastroNomeProduto().getText());
+                produto.setPreco(Float.parseFloat(telaCadastroProduto.getTxtCadastroPrecoProduto().getText()));
+                produto.setQuantidade(Integer.parseInt(telaCadastroProduto.getTxtCadastroQuantidadeProduto().getText()));
+                Usuario usuario = usuarioDAO.pesquisar(Sessao.getId());
+                produto.setEmpresa(usuario.getNome());
+                fis = new FileInputStream(this.telaCadastroProduto.getCaminhoImagem());
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                byte[] buffer = new byte[1536000000];
+                
+                int bytesRead;
+                
+                try {
+                    while ((bytesRead = fis.read(buffer)) != -1) {
+                        baos.write(buffer, 0, bytesRead);
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(ServiceCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                byte[] imagemBytes = baos.toByteArray();
+                produto.setFoto(imagemBytes);
+                produtoDAO.inserir(produto);
+//                this.salvarImagem();
+                this.telaCadastroProduto.dispose();
+                this.serviceConfiguracao.listar();
+                this.telaConfiguracaoEmpresa.setVisible(true);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(ServiceCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fis.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(ServiceCadastroProduto.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
             
         } else{
             JOptionPane.showMessageDialog(telaCadastroProduto, "Preencha todos os campos!","Erro",JOptionPane.ERROR_MESSAGE);
@@ -83,27 +107,7 @@ public class ServiceCadastroProduto {
             JOptionPane.showMessageDialog(telaCadastroProduto, "Não obteve o carregamento do arquivo");
         }
     }
-//    
-//    FileInputStream fis = new FileInputStream(imagemArquivo);
-//    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//    byte[] buffer = new byte[4096];
-//    int bytesRead;
-//    while ((bytesRead = fis.read(buffer)) != -1) {
-//        baos.write(buffer, 0, bytesRead);
-//    }
-//    byte[] imagemBytes = baos.toByteArray();
-    
-    private void salvarImagem(){
-        
-        try {
-            File arquivo = new File(telaCadastroProduto.getCaminhoImagem());
-            ImageIO.write(imagem, "jpg", arquivo);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(telaCadastroProduto, "Não foi possível enviar a imagem");
-        }
-        
-    }
-    
+
     public void limpar() {
         telaCadastroProduto.limpar();
     }
@@ -124,14 +128,6 @@ public class ServiceCadastroProduto {
         else{
             return true;
         }
-    }
-    
-    public void recebeImagem() {
-            // converter o array de bytes em um objeto ImageIcon
-        ImageIcon imagemIcon = new ImageIcon(this.telaCadastroProduto.getCaminhoImagem());
-
-        // criar um JLabel e adicionar o ImageIcon
-        this.telaCadastroProduto.getLblCadastroFotoProduto().setIcon(imagemIcon);
     }
     
     public void mostrar(int id) {

@@ -1,13 +1,9 @@
 package main.java.br.edu.ifba.model;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.imageio.ImageIO;
 
 
 public class ProdutoDAO {
@@ -22,7 +18,7 @@ public class ProdutoDAO {
             try {                
                 pst = Conexao.getConexao().prepareStatement(sql);
                 pst.setString(1, produto.getNome());
-                pst.setString(2, produto.getFoto());
+                pst.setBytes(2, produto.getFoto());
                 pst.setFloat(3, produto.getPreco());
                 pst.setInt(4, produto.getQuantidade());
                 pst.setString(5, produto.getEmpresa());
@@ -49,7 +45,7 @@ public class ProdutoDAO {
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
             pst.setString(1, produto.getNome());
-            pst.setString(2, produto.getFoto());
+            pst.setBytes(2, produto.getFoto());
             pst.setFloat(3, produto.getPreco());
             pst.setInt(4, produto.getQuantidade());
             pst.setString(5, produto.getEmpresa());
@@ -99,9 +95,10 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setFoto(rs.getString("foto"));
+                produto.setFoto(rs.getBytes("foto"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setEmpresa(rs.getString("empresa"));
                 lista.add(produto);
             }
             
@@ -132,10 +129,9 @@ public class ProdutoDAO {
             if(rs.next()){
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setFoto(rs.getString("foto"));
+                produto.setFoto(rs.getBytes("foto"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setQuantidade(rs.getInt("quantidade"));
-                produto.setEmpresa(rs.getString("empresa"));
             }
             
             rs.close();
@@ -147,6 +143,43 @@ public class ProdutoDAO {
         
         return produto;
     }
+    
+    
+    public ArrayList<Produto> listarPorEmpresa(String empresa){
+        String sql = "SELECT * FROM produto WHERE empresa = ? ORDER BY nome, preco, foto";
+        
+        ArrayList<Produto> lista = new ArrayList<>();
+        
+        PreparedStatement pst;
+        ResultSet rs;
+        
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setString(1, empresa);
+
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                Produto produto = new Produto();
+                produto.setId(rs.getInt("id"));
+                produto.setNome(rs.getString("nome"));
+                produto.setFoto(rs.getBytes("foto"));
+                produto.setPreco(rs.getFloat("preco"));
+                produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setEmpresa(rs.getString("empresa"));
+                lista.add(produto);
+            }
+            
+            rs.close();
+            pst.close();
+            
+        } catch (SQLException ex) {
+            System.out.println("listarPorEmpresa: " + ex);
+        }
+        
+        return lista;  
+    }
+    
       
     public ArrayList<Produto> listar(){
         String sql = "SELECT * FROM produto ORDER BY nome, preco, foto";
@@ -164,7 +197,7 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setFoto(rs.getString("foto"));
+                produto.setFoto(rs.getBytes("foto"));
                 produto.setPreco(rs.getFloat("preco"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setEmpresa(rs.getString("empresa"));
@@ -211,16 +244,4 @@ public class ProdutoDAO {
         
     }
     
-//    public void mostrarImagem(int id) {
-//        byte[] foto = null;
-//        BufferedImage imagem = null;
-//        
-//        Produto produto = pesquisar(id);
-//        
-//        try {
-//            imagem = ImageIO.read(new ByteArrayInputStream(produto.getFoto()));
-//        } catch (IOException e) {
-//            System.out.println(e);
-//        }
-//    }
 }

@@ -135,14 +135,14 @@ public class UsuarioDAO {
         return usuario;
     }
     
-    public boolean excluir(Usuario usuario){
+    public boolean excluir(int id){
         String sql = "DELETE FROM usuario WHERE id = ?";
         
         PreparedStatement pst;
         
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
-            pst.setInt(1, usuario.getId());
+            pst.setInt(1, id);
             pst.execute();
             pst.close();                
         } catch (SQLException ex) {

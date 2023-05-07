@@ -3,7 +3,7 @@ package main.java.br.edu.ifba.model;
 public class Produto {
     private int id;
     private String nome;
-    private String foto;
+    private byte[] foto;
     private float preco;
     private int quantidade;
     private String empresa;
@@ -24,11 +24,11 @@ public class Produto {
         this.nome = nome;
     }
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
 
